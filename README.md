@@ -18,16 +18,16 @@
   >* **check_service_time**：輸出車輛實際服務時間點
   >* **check_arrive_time**：輸出車輛實際抵達時間點
   >* **ride_counter**：將現有路線中的乘客分類集中成趟次
- * **sql cost**：設定成本資料格式
- * **sql request**：設定需求資料格式
- * **sql resource**：設定資源資料格式
- * **generate the initial route**：產生初始路線
- * **show the initial result**：展示初始路線
- * **improvement the initial route**：改善初始路線
- * **show the improved result**：展示改善路線
- * **show the unservable result**：展示未服務訂單
- * **waiting strategy & Fix TW**：等待時間調整及固調好時窗
- * **calculate the trip & format the data**：計算趟次及將資料轉換成所需格式
+  * **sql cost**：設定成本資料格式
+  * **sql request**：設定需求資料格式
+  * **sql resource**：設定資源資料格式
+  * **generate the initial route**：產生初始路線
+  * **show the initial result**：展示初始路線
+  * **improvement the initial route**：改善初始路線
+  * **show the improved result**：展示改善路線
+  * **show the unservable result**：展示未服務訂單
+  * **waiting strategy & Fix TW**：等待時間調整及固調好時窗
+  * **calculate the trip & format the data**：計算趟次及將資料轉換成所需格式
 * **Data Input and Data Ouput**：輸出資料至sql
 
 #### 實際如下圖：
