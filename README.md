@@ -30,4 +30,5 @@
 * **calculate the trip & format the data**：計算趟次及將資料轉換成所需格式
 * **Data Input and Data Ouput**：輸出資料至sql
 
+### 實際如下圖：
 ![image](https://github.com/YangShihKuan/THI-VRP-thesis/blob/master/%E7%A8%8B%E5%BC%8F%E7%B5%90%E6%A7%8B.PNG)
