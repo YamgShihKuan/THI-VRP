@@ -17,10 +17,10 @@ import time
 #username = '' 
 #password = '' 
 #cnxn = pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
-server = '(local)' 
-database = 'CarSharing_VRP' 
-username = 'jameschu' 
-password = 'jameschu'
+server = '' 
+database = '' 
+username = '' 
+password = ''
 cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
 #%% parameter setting
 Max_mile = 20 # upper limit for a ride
@@ -411,67 +411,6 @@ def main_funtion(request,cost,resource):
                 
         return current_list
     
-#    def tw_reducer(feasible_route,car_number):
-##        print feasible_route
-##        if True:
-##            for i in feasible_route:
-##                print Day_order[i][2],Day_order[i][3]
-#        debug_time = Day_order[feasible_route[0]][2]
-#        endtime = resource_info[car_number][-2]
-#        debug_route_time = []
-#        debug_real_time = []
-#        for i in range(len(feasible_route)):          
-#            pre_node = Day_order[feasible_route[i-1]][1]            
-#            now_node = Day_order[feasible_route[i]][1]
-#            e_time = Day_order[feasible_route[i]][2]
-#            l_time = Day_order[feasible_route[i]][3]
-#            if i == 0:
-#                debug_route_time.append(debug_time)
-#                debug_real_time.append(debug_time)
-#                next_node = Day_order[feasible_route[i+1]][1]
-#                if now_node == next_node:
-#                    continue
-#                else:
-#                    if feasible_route[i] < 0:
-##                            print feasible_route[i-1]
-#                        debug_time += down_service_time
-##                            debug_time += service_time
-#                        
-#                    else:    
-#                        debug_time += service_time              
-#            elif i == len(feasible_route)-1:
-#                debug_time = debug_time+t[pre_node,now_node]
-#                debug_route_time.append(debug_time)
-#                debug_real_time.append(endtime)
-#            elif i > 0:
-#                debug_time = max([debug_time+t[pre_node,now_node],e_time])
-#                debug_route_time.append(debug_time)
-#                debug_real_time.append(l_time)   
-#                next_node = Day_order[feasible_route[i+1]][1]
-#                if now_node == next_node:
-#                    continue
-#                else:
-#                    if feasible_route[i] < 0:
-##                            print feasible_route[i-1]
-#                        debug_time += down_service_time
-##                            debug_time += service_time
-#                        
-#                    else:    
-#                        debug_time += service_time                 
-#        for i,j in zip(feasible_route,debug_route_time):
-#
-#            if i > 0:
-#    
-#                Day_order[i][2] = math.floor(j - new_tw/2)
-#                Day_order[i][3] = math.floor(j + new_tw/2)
-#            elif i < 0:
-#    
-#                Day_order[-i][6] = math.floor(j - new_tw/2)
-#                Day_order[-i][7] = math.floor(j + new_tw/2)
-#                Day_order[i][2] = math.floor(j - new_tw/2)
-#                Day_order[i][3] = math.floor(j + new_tw/2)
-
-
     def relocation_operator(original_plan):
         all_reinsert_info = {}
         for i in original_plan:
