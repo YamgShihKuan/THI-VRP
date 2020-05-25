@@ -4,9 +4,9 @@
 * input three sql data sheet：將sql中的乘客訂單、司機名單及成本矩陣讀去盡python
 * datafit：轉換sql資料格式的函式
 * main_funtion：主要函式
-  * time_form
-  * total_time
-  * total_distant
+ * time_form
+ * total_time
+ * total_distant
 
 
 
