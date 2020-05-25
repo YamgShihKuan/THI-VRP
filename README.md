@@ -5,7 +5,7 @@
 * **parameter setting**：常數項設定，包含最大旅行距離、上下車服務時間、時窗、最大旅行時間等
 * **input three sql data sheet**：將sql中的乘客訂單、司機名單及成本矩陣讀去盡python
 * **datafit**：轉換sql資料格式的函式
-* **main_funtion**：主要函式
+* **main_funtion**：主要函式，輸入(訂單、資源、成本)
   >* **time_form**：專換時間為整數
   >* **total_time**：計算路線總旅行時間
   >* **total_distant**：計算路線總旅行距離
