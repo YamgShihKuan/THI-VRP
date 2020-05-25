@@ -12,10 +12,10 @@ import pyodbc
 import time
 #import pprint
 #%% sql sever setting
-#server = '192.168.200.28' 
-#database = 'CarSharing_VRP' 
-#username = 'sa' 
-#password = 'THIX@23459112' 
+#server = '' 
+#database = '' 
+#username = '' 
+#password = '' 
 #cnxn = pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
 server = '(local)' 
 database = 'CarSharing_VRP' 
