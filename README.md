@@ -6,7 +6,7 @@
 * **input three sql data sheet**：將sql中的乘客訂單、司機名單及成本矩陣讀去盡python
 * **datafit**：轉換sql資料格式的函式
 * **main_funtion**：主要函式
-  >+ **time_form**：專換時間為整數
+  >* **time_form**：專換時間為整數
   >* **total_time**：計算路線總旅行時間
   >* **total_distant**：計算路線總旅行距離
   >* **route_seed_initialer**：初始化乘客方法一
