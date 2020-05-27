@@ -10,13 +10,21 @@ import copy
 import time
 import os
 
+
+new_tw = 10
+service_time = 10
+max_ride_time  = 99999999999999999
+
+
+
+
+
 def test_exp(file_name,heuristic,seed,a,b,insert_type,unknown_rate,arrive_time = None,improvement = None,waiting_time = None,waiting_strategy = None,dynamic = None):
   
 #    print seed,type(seed),heuristic,type(heuristic)
     def dist(x1,x2,y1,y2):
         return ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5   
-    new_tw = 10
-    service_time = 10
+
     np.random.seed(seed)
     #####################################################
 
@@ -34,7 +42,7 @@ def test_exp(file_name,heuristic,seed,a,b,insert_type,unknown_rate,arrive_time =
     people_n = int(txt_basic[1])
     
     max_route_duration = txt_basic[2]
-    max_ride_time  = 99999999999999999
+    
 #    print file_name[:5],",",people_n,",",int(max_route_duration),",",int(txt_basic[3]),","
 #    print "max_route_duration,max_ride_time",max_route_duration,max_ride_time
     txt_requst = txt_read[2:]
@@ -96,7 +104,7 @@ def test_exp(file_name,heuristic,seed,a,b,insert_type,unknown_rate,arrive_time =
     for i in range(fleet_n):
         resource_info[i+1] = [i+1, u'', u'', '2018/11/19', u'\u5ef6\u5e73\u9109', u'RAP-3017', u'\u90b1\u7d2b\u5609', txt_depot[-2], txt_depot[-1], txt_basic[3]]
         unuse_resource_info[u'\u5ef6\u5e73\u9109']['2018/11/19'].append(i+1)
-    print resource_info
+    print (resource_info)
     village_key = [u'\u5ef6\u5e73\u9109']
     #####################################################
  
@@ -326,7 +334,7 @@ def test_exp(file_name,heuristic,seed,a,b,insert_type,unknown_rate,arrive_time =
 #    print Day_request_info
 #    print Day_request_info[u'\u5ef6\u5e73\u9109']['1900/00/00']['2018/11/19']
 #    print
-#%%unknown
+    #%%unknown
     unknown_canidate = range(1,people_n+1)
 #    print unknown_canidate
 #    unknown_canidate = []
@@ -459,7 +467,7 @@ def test_exp(file_name,heuristic,seed,a,b,insert_type,unknown_rate,arrive_time =
         now_uroute_list = []
         for i in unroute_list:
             now_uroute_list.append(Day_order[i])
-        print "--",now_uroute_list[0][2]
+        print ("--",now_uroute_list[0][2])
         sort_now_uroute_list = sorted(now_uroute_list, key = lambda x : (x[2]))
         sort_uroute_list = []
         for i in sort_now_uroute_list:
@@ -537,9 +545,9 @@ def test_exp(file_name,heuristic,seed,a,b,insert_type,unknown_rate,arrive_time =
     #                print current_routeA,i,check_feasible_route(current_routeA,i),resource_info[i]
                 if check_feasible_route(current_routeA,i) == 0:
     #                print " It is feasible"
-                    print i 
+                    print (i) 
                     useed_resource_info[village][Day][i] = [0,j,-j,0]
-                    print useed_resource_info[village][Day][i]
+                    print (useed_resource_info[village][Day][i])
                     seed_list.remove(j)
                     break                  
                 else:
@@ -1021,8 +1029,11 @@ def test_exp(file_name,heuristic,seed,a,b,insert_type,unknown_rate,arrive_time =
 #        before_insert_time = 0      
         regret_start_time = time.time()
         while len(unroute_list) > 0:
-
-            car_keys = useed_resource_info[village][Day].keys()        
+#            print ("+++++++++++",unroute_list)
+            car_keys = useed_resource_info[village][Day].keys()    
+#            print ("+++++++++++",car_keys)
+#            print ("+++++++++++",useed_resource_info[village][Day].values())
+            
             temp_route = copy.copy(useed_resource_info[village][Day].values())
 #            print "car_keys",car_keys,"temp_route:",temp_route
             c2_value = []
@@ -1048,6 +1059,8 @@ def test_exp(file_name,heuristic,seed,a,b,insert_type,unknown_rate,arrive_time =
                         start_place = 1
                     else:
                         start_place = 1
+#                    print useed_resource_info[village][Day].values()
+#                    print useed_resource_info[village][Day].values().index(o_route))
                     car_number = car_keys[useed_resource_info[village][Day].values().index(o_route)]
                      
                     c1_value = []
@@ -1545,7 +1558,7 @@ def test_exp(file_name,heuristic,seed,a,b,insert_type,unknown_rate,arrive_time =
                                             original_plan[l] = insert__route_c
                                             all_reinsert_info[i] = l   
                                         if len(remoeve_route_c) == 0 or len(insert__route_c) == 0 :
-                                            print "need to cut car"                                            
+                                            print ("need to cut car")
                                 else:
                                     break 
         return original_plan
@@ -1630,7 +1643,7 @@ def test_exp(file_name,heuristic,seed,a,b,insert_type,unknown_rate,arrive_time =
                                         all_reinsert_info[i] = car_s
                                         all_reinsert_info[j] = car_r  
                                         if len(best_insert_route_r) == 0 or len(best_insert_route_s) == 0 :
-                                            print "need to cut car"
+                                            print ("need to cut car")
         return original_plan
         
 
@@ -1746,7 +1759,7 @@ def test_exp(file_name,heuristic,seed,a,b,insert_type,unknown_rate,arrive_time =
     #                print "              known after start"
                     arrival_time[i] = upper_bound_i-arrive_time
                 else:
-                    print "known before start",i
+                    print ("known before start",i)
                     arrival_time[i] = 0
             arrival_order = sorted(arrival_time.items(), key = lambda x : (x[1]))
 #            print arrival_order
@@ -1794,7 +1807,7 @@ def test_exp(file_name,heuristic,seed,a,b,insert_type,unknown_rate,arrive_time =
     for village in village_key:
         for reser_Day in useed_resource_info[village].keys():  
             for route in useed_resource_info[village][reser_Day]:  
-                print useed_resource_info[village][reser_Day][route]
+                print (useed_resource_info[village][reser_Day][route])
                 a+=(len(useed_resource_info[village][reser_Day][route])-2)/2.0
 #                        for j in useed_resource_info[village][reser_Day][route]:
 #                            print j,Day_order[j][2]-Day_order[j][3]                                           
@@ -1947,8 +1960,8 @@ for algorithm in insertion[-1:]:
         
 #            for file_name in file_names[-1:]:
 #            for file_name in files[:48]:
-            for file_name in files[:1]:
-    
+            for file_name in files[1:2]:
+                        print (file_name,type(file_name))
     #            for file_name in files[:24]:            
 #                    for unknown_rate in unknown_rate_list:
     #                for unknown_rate in unknown_rate_list2[:1]:    
